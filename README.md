@@ -70,64 +70,12 @@ Los pasos seguidos han sido los siguientes:
   ├── splash.png
   └── splash-dark.png
   ```
-  
+
   6. Una vez generados los archivos www y android, ejecutar el comando:
   ```bash 
     npx capacitor-assets generate
   ```
 
-
-
-### 🖼️ 1. Mostrar nombre de la foto
-
-Se envolvió la etiqueta de la imagen en un `div`, y justo debajo se colocó un encabezado `h4` que accede a la propiedad `filepath` del objeto `photo`, lo que permite mostrar el **nombre de la foto**.
-
-```html
-<div>
-  <img [src]="photo.webviewPath" />
-  <h4>{{ photo.filepath }}</h4>
-</div>
-```
-
----
-
-### 🔁 2. Cambio de Tab
-
-Se modificó el código HTML de `tab2.page.html` para trasladarlo a `tab3.page.html`, reorganizando la lógica de presentación y navegación entre las pestañas de la aplicación.
-
----
-
-### 🧩 3. Uso de Directiva Estructural (`*ngIf`)
-
-Se utilizó una **Structural Directive** (`*ngIf`) de Angular para mostrar las fotos solo cuando una variable booleana de estado lo permita. Esta variable cambia al valor opuesto cuando se hace clic en un botón, lo que permite **alternar la visibilidad** de las fotos.
-
-```html
-<ion-fab vertical="bottom" horizontal="center" slot="fixed">
-  <ion-fab-button (click)="mostrarFotos = !mostrarFotos">
-      <ion-icon name="images"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-
-<ion-grid *ngIf="mostrarFotos">
-  <!-- Contenido de fotos -->
-</ion-grid>
-```
-
----
-
-### 📷 Literal 4 — Reducción de Calidad de Imagen
-
-En `photo.service.ts` se agregó un método similar a `addNewToGallery`, pero ajustando la propiedad `quality` del objeto `capturedPhoto` de `100` a `50`, para reducir el tamaño de las imágenes capturadas.
-
-```ts
-const capturedPhoto = await Camera.getPhoto({
-      resultType: CameraResultType.Uri,
-      source: CameraSource.Camera,
-      quality: 50
-});
-```
-
----
 
 ## ⚙️ Permisos requeridos para generación de APK (Android)
 
