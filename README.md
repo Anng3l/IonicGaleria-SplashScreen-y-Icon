@@ -2,7 +2,27 @@
 
 Este proyecto es una aplicación móvil desarrollada con **Ionic** y **Angular**, que permite capturar, visualizar y gestionar fotos desde el dispositivo móvil. Se aprovechan funcionalidades de la cámara y almacenamiento mediante Capacitor, el cual provee la funcionalidad para que el Splash Screen funcione, así como establecer un ícono para la aplicación, integrando permisos para Android y control de calidad de las imágenes.
 
----
+## 🛠️ Instalación y ejecución
+
+Sigue los pasos a continuación para clonar el proyecto y ejecutarlo en tu entorno local:
+
+1. **Clonar el repositorio**
+
+```bash
+git clone https://github.com/Anng3l/IonicGaleria-SplashScreen-y-Icon.git
+```
+2. **Instalar dependencias**
+```bash
+npm install
+```
+3. **Generación de la app en Android**
+```bash
+ionic build
+npx cap add android
+npx cap sync android
+npx capacitor-assets generate
+npx cap open android
+```
 
 ## 🧠 Explicaciones de Implementación
 
