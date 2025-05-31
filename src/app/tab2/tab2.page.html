@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Galería
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- ----------------- 3 ----------------- Botón para mostrar las fotos -->
+  <ion-fab vertical="top" horizontal="right" slot="fixed">
+    <ion-fab-button (click)="mostrarFotos = !mostrarFotos">
+      <ion-icon name="images"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-grid *ngIf="mostrarFotos">
+    <ion-row>
+      <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
+        <div>
+          <ion-img [src]="photo.webviewPath"></ion-img>
+          <!-- ----------------- 1 ----------------- Mostrar el nombre de las fotos debajo de cada foto -->
+          <h4>{{photo}}</h4>
+        </div>
+      </ion-col>  
+    </ion-row>
+  </ion-grid>
+
+
+
+  <!-- fab === floating action button (elementos contenedores que contienen 1 o más fab button) -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <!-- el botón per se -->
+    <h4>100%</h4>
+    <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-icon name="camera" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <!-- ----------------- 4 ----------------- Botón para tomar las fotos al 50% de calidad -->
+  <ion-fab vertical="bottom" horizontal="right" slot="fixed">
+    <h4>50%</h4>
+    <ion-fab-button (click)="addPhotoToGalleryHalfQuality()">
+      <ion-icon name="camera" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
