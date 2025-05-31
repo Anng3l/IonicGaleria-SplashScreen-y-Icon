@@ -62,14 +62,15 @@ Los pasos seguidos han sido los siguientes:
   ```
 
   5. Crear una carpeta llamada assets en la raíz del proyecto. Las imágenes del splash screen e icon deben seguir una estructura de nombres fija:
-
+  ```
     assets/
   ├── icon-only.png
   ├── icon-foreground.png
   ├── icon-background.png
   ├── splash.png
   └── splash-dark.png
-
+  ```
+  
   6. Una vez generados los archivos www y android, ejecutar el comando:
   ```bash 
     npx capacitor-assets generate
